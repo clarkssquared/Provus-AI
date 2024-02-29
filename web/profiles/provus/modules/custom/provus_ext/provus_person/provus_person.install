@@ -1,0 +1,36 @@
+<?php
+
+use Drupal\user\Entity\Role;
+
+/**
+ * @file
+ * Install and uninstall functions for the Provus Person.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function provus_person_install() {
+  // Grant workflow permission
+  $role_object = Role::load('content_approver');
+  $role_object->grantPermission('create provus_person content');
+  $role_object->grantPermission('delete any provus_person content');
+  $role_object->grantPermission('delete provus_person revisions');
+  $role_object->grantPermission('edit any provus_person content');
+  $role_object->grantPermission('revert provus_person revisions');
+  $role_object->grantPermission('view provus_person revisions');
+  $role_object->save();
+
+  $role_object = Role::load('content_writer');
+  $role_object->grantPermission('create provus_person content');
+  $role_object->grantPermission('delete own provus_person content');
+  $role_object->grantPermission('edit own provus_person content');
+  $role_object->save();
+
+  /** @var \Drupal\workflows\WorkflowInterface $workflow */
+  $workflow = \Drupal::entityTypeManager()->getStorage("workflow")->loadByProperties(["id" => "basic"])["basic"];
+  $config = $workflow->getTypePlugin()->getConfiguration();
+  $config["entity_types"]["node"][] = "provus_person";
+  $workflow->getTypePlugin()->setConfiguration($config);
+  $workflow->save();
+}

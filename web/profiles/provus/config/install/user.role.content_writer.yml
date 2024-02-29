@@ -1,0 +1,45 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.document
+    - media.type.image
+    - media.type.local_video
+    - media.type.remote_video
+    - workflows.workflow.basic
+  module:
+    - content_moderation
+    - contextual
+    - media
+    - node
+    - pathauto
+    - system
+    - toastify
+    - tour
+id: content_writer
+label: 'Content Writer'
+weight: 3
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access media overview'
+  - 'access tour'
+  - 'create document media'
+  - 'create image media'
+  - 'create local_video media'
+  - 'create media'
+  - 'create remote_video media'
+  - 'edit own image media'
+  - 'edit own local_video media'
+  - 'edit own remote_video media'
+  - 'notify of path changes'
+  - 'show toastify messages'
+  - 'update media'
+  - 'use basic transition create_new_draft'
+  - 'use basic transition send_to_draft'
+  - 'use basic transition send_to_needs_review'
+  - 'view latest version'
+  - 'view own unpublished content'
+  - 'view own unpublished media'
+  - 'view the administration theme'

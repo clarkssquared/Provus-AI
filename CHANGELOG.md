@@ -1,57 +1,37 @@
 # Changelog
 
-All notable changes specific to pantheon-upstreams/drupal-composer-managed are noted here.
+All notable changes to this project will be documented in this file.
 
-## Pantheon Update #4 - 2023-06-27
+## [Unreleased]
 
-### Changed
+## [2.1.2] - 2023-10-17
 
-- Removed the `upstream-require` script ([#17](https://github.com/pantheon-systems/drupal-composer-managed/pull/17), [#21](https://github.com/pantheon-systems/drupal-composer-managed/pull/21), [#28](https://github.com/pantheon-systems/drupal-composer-managed/pull/28)). This is now available as a standalone Composer plugin: [`pantheon-systems/upstream-management`](https://packagist.org/packages/pantheon-systems/upstream-management)
-- Fixed `composer update --dry-run` by setting the path repository version to `dev-main` ([#39](https://github.com/pantheon-systems/drupal-composer-managed/pull/39))
+### Fixed
 
-
-## Pantheon Update #3 - 2022-03-23
-
-### Changed
-
-- Renamed repository from pantheon-upstreams/drupal-recommended to pantheon-upstreams/drupal-composer-managed
-- Switched the default branch from 'master' to 'main'
-
-### Added
-
-- Created a Composer pre-update script to ensure that the version of the upstream-configuration path repository is always 'dev-main', regardless of what branch / multidev the "composer update" command was run on.
-- Added a new command, "composer upstream-require", for adding dependencies to the upstream-configuration path repository in custom upstreams.
-
-
-## Pantheon Update #2 - 2021-11-01
+- Corrected variable adjustments in the Provus theme to align with the design's typography.
+- Resolved the compatibility issue with Slick and Blazy, aligning them with our pinned version of Slick.
+- Fixed an installation error where not all extensions were being selected.
 
 ### Changed
 
-- Renamed repository from pantheon-upstreams/drupal-project to pantheon-upstreams/drupal-recommended.
-- Update .gitignore to make it easier to manage changes to the Drupal core scaffold files.
-- Move most dependencies out of `upstream-configuration` to give more control to individual sites.
-- Install contrib modules to `web/modules/contrib` rather than `web/modules/composer`.
+- Enhanced the layout builder editorial experience.
+    - Installed the `gin_lb` module
+    - Transitioned the Gin theme settings from "Classic" to "Vertical."
+    - Renamed SVG image components by eliminating the "-white" suffixes (location: `web/profiles/provus/modules/custom/provus_core/provus_blocks/config/install`).
+    - Adjusted module weight of `boostrap_styles` to address the issue of missing styles in the Provus installation's layout builder.
+        - Theme-related changes:
+        - Added JavaScript code to `custom.js`.
+        - Included additional SVG images in the `provus_bootstrap` theme folder.
+        - Updated `scss/admin/_layout_builder.scss`.
 
 
-## Pantheon Update #1 - 2021-02-03
+## [2.1.2] - 2023-09-13
 
-### Added
+## Added
 
-- Add changelog to track Pantheon-specific changes to pantheon-upstreams/pantheon-project. (#10)
-- Two repositories for release management. Pull requests accepted at https://github.com/pantheon-systems/drupal-project and releases located at https://github.com/pantheon-upstreams/drupal-project. (#4,#5)
+- Introduced focal points for image styles.
+- Installed `default_content_deploy` and added default content as test options.
 
+## Fixed
 
-
-### Changed
-
-- Allow site-level customization of Drush version. (#5)
-- Allow sites to downgrade to Drupal 8.8.  (#6)
-- Use optimized autoloader in Test and Live, but not Dev or Multidev (#8)
-
-
-
-### Removed
-
-- Remove install check and MariaDB minimum version patches. (#3)
-
-[The associated milestone in GitHub](https://github.com/pantheon-systems/drupal-project/milestone/1?closed=1) provides detailed information about all changes in this update.
+- Standardized card styles and view modes.

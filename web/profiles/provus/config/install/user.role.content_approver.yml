@@ -1,0 +1,34 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflows.workflow.basic
+  module:
+    - content_moderation
+    - media
+    - node
+    - system
+    - toastify
+    - tour
+id: content_approver
+label: 'Content Approver'
+weight: 4
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access tour'
+  - 'administer media'
+  - 'administer nodes'
+  - 'delete all revisions'
+  - 'revert all revisions'
+  - 'show toastify messages'
+  - 'use basic transition create_new_draft'
+  - 'use basic transition publish'
+  - 'use basic transition send_to_draft'
+  - 'use basic transition send_to_needs_review'
+  - 'use basic transition unpublish'
+  - 'view all revisions'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view own unpublished content'
+  - 'view the administration theme'

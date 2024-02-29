@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - webform
+_core:
+id: webform_archive_action
+label: 'Archive webform'
+type: webform
+plugin: webform_archive_action
+configuration: {  }
